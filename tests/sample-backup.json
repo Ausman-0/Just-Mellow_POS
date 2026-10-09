@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "shopName": "JUST MELLOW · TEST DATA",
+  "exportedAt": "2026-10-09T00:00:00.000Z",
+  "products": [
+    {
+      "id": "pudding-caramel",
+      "name": "พุดดิ้งนมสดคาราเมล",
+      "category": "พุดดิ้ง",
+      "priceSatang": 3000,
+      "costSatang": 1000,
+      "active": true,
+      "draft": false,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "pudding-coffee",
+      "name": "พุดดิ้งกาแฟ",
+      "category": "พุดดิ้ง",
+      "priceSatang": 3000,
+      "costSatang": null,
+      "active": true,
+      "draft": false,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "pudding-thai-tea",
+      "name": "พุดดิ้งชาไทย",
+      "category": "พุดดิ้ง",
+      "priceSatang": 3000,
+      "costSatang": null,
+      "active": true,
+      "draft": false,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "pudding-green-tea",
+      "name": "พุดดิ้งชาเขียว",
+      "category": "พุดดิ้ง",
+      "priceSatang": 3000,
+      "costSatang": null,
+      "active": true,
+      "draft": false,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "pudding-cocoa",
+      "name": "พุดดิ้งโกโก้",
+      "category": "พุดดิ้ง",
+      "priceSatang": 3000,
+      "costSatang": 1100,
+      "active": true,
+      "draft": false,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "fruit-mixed",
+      "name": "ชาผลไม้รวม",
+      "category": "ชาผลไม้",
+      "priceSatang": 5000,
+      "costSatang": 2200,
+      "active": true,
+      "draft": false,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "fruit-grape",
+      "name": "ชาองุ่น",
+      "category": "ชาผลไม้",
+      "priceSatang": 5000,
+      "costSatang": null,
+      "active": true,
+      "draft": false,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "fruit-apple",
+      "name": "ชาแอปเปิล",
+      "category": "ชาผลไม้",
+      "priceSatang": 5000,
+      "costSatang": 2000,
+      "active": true,
+      "draft": false,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "fruit-orange",
+      "name": "ชาส้ม",
+      "category": "ชาผลไม้",
+      "priceSatang": 5000,
+      "costSatang": null,
+      "active": true,
+      "draft": false,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "shake-chocolate",
+      "name": "มิลค์เชคช็อกโกแลต",
+      "category": "มิลค์เชค",
+      "priceSatang": 5000,
+      "costSatang": 2300,
+      "active": false,
+      "draft": true,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "shake-vanilla",
+      "name": "มิลค์เชควานิลลา",
+      "category": "มิลค์เชค",
+      "priceSatang": 5000,
+      "costSatang": null,
+      "active": false,
+      "draft": true,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "shake-strawberry",
+      "name": "มิลค์เชคสตรอว์เบอร์รี",
+      "category": "มิลค์เชค",
+      "priceSatang": 5500,
+      "costSatang": null,
+      "active": false,
+      "draft": true,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    },
+    {
+      "id": "shake-coffee",
+      "name": "มิลค์เชคกาแฟ",
+      "category": "มิลค์เชค",
+      "priceSatang": 5000,
+      "costSatang": null,
+      "active": false,
+      "draft": true,
+      "createdAt": "2026-10-01T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z"
+    }
+  ],
+  "sales": [
+    {
+      "id": "fixture-sale-001",
+      "receiptNo": "JM-20261009-0001",
+      "createdAt": "2026-10-09T05:10:00.000Z",
+      "status": "completed",
+      "cancelledAt": null,
+      "cancelReason": "",
+      "paymentMethod": "cash",
+      "items": [
+        {
+          "productId": "pudding-caramel",
+          "name": "พุดดิ้งนมสดคาราเมล",
+          "category": "พุดดิ้ง",
+          "quantity": 2,
+          "unitPriceSatang": 3000,
+          "unitCostSatang": 1000,
+          "lineTotalSatang": 6000
+        },
+        {
+          "productId": "fruit-mixed",
+          "name": "ชาผลไม้รวม",
+          "category": "ชาผลไม้",
+          "quantity": 1,
+          "unitPriceSatang": 5000,
+          "unitCostSatang": 2200,
+          "lineTotalSatang": 5000
+        }
+      ],
+      "itemCount": 3,
+      "subtotalSatang": 11000,
+      "totalSatang": 11000,
+      "receivedSatang": 12000,
+      "changeSatang": 1000
+    },
+    {
+      "id": "fixture-sale-002",
+      "receiptNo": "JM-20261009-0002",
+      "createdAt": "2026-10-09T06:22:00.000Z",
+      "status": "completed",
+      "cancelledAt": null,
+      "cancelReason": "",
+      "paymentMethod": "qr",
+      "items": [
+        {
+          "productId": "pudding-cocoa",
+          "name": "พุดดิ้งโกโก้",
+          "category": "พุดดิ้ง",
+          "quantity": 1,
+          "unitPriceSatang": 3000,
+          "unitCostSatang": 1100,
+          "lineTotalSatang": 3000
+        },
+        {
+          "productId": "fruit-apple",
+          "name": "ชาแอปเปิล",
+          "category": "ชาผลไม้",
+          "quantity": 1,
+          "unitPriceSatang": 5000,
+          "unitCostSatang": 2000,
+          "lineTotalSatang": 5000
+        }
+      ],
+      "itemCount": 2,
+      "subtotalSatang": 8000,
+      "totalSatang": 8000,
+      "receivedSatang": null,
+      "changeSatang": null
+    },
+    {
+      "id": "fixture-sale-003",
+      "receiptNo": "JM-20261008-0001",
+      "createdAt": "2026-10-08T07:35:00.000Z",
+      "status": "cancelled",
+      "cancelledAt": "2026-10-08T07:45:00.000Z",
+      "cancelReason": "ข้อมูลทดสอบ: ลูกค้าเปลี่ยนใจ",
+      "paymentMethod": "transfer",
+      "items": [
+        {
+          "productId": "shake-chocolate",
+          "name": "มิลค์เชคช็อกโกแลต",
+          "category": "มิลค์เชค",
+          "quantity": 1,
+          "unitPriceSatang": 5000,
+          "unitCostSatang": 2300,
+          "lineTotalSatang": 5000
+        }
+      ],
+      "itemCount": 1,
+      "subtotalSatang": 5000,
+      "totalSatang": 5000,
+      "receivedSatang": null,
+      "changeSatang": null
+    }
+  ]
+}
