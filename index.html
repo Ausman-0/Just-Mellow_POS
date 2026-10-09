@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#24584d">
+  <meta name="description" content="JUST MELLOW POS — ระบบขายและรายงานสำหรับร้านขนมและเครื่องดื่ม">
+  <title>JUST MELLOW POS</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./assets/icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand-lockup">
+        <div class="brand-mark" aria-label="JUST MELLOW">JM</div>
+        <div class="brand-copy"><strong>JUST MELLOW</strong><span>POINT OF SALE</span></div>
+      </div>
+      <div class="topbar-status">
+        <span class="status-pill" id="network-status"><i></i><span>กำลังตรวจสอบ...</span></span>
+        <button class="icon-button install-button" id="install-app" hidden aria-label="ติดตั้งแอป" title="ติดตั้งแอป">↓</button>
+      </div>
+    </header>
+
+    <main id="main-content" class="main-content">
+      <section class="page active" id="page-pos" data-page="pos">
+        <div class="page-heading"><div><p class="eyebrow">หน้าร้าน</p><h1>รับออเดอร์</h1><p class="subheading">แตะเมนูเพื่อเพิ่มลงในบิล</p></div><div class="today-chip" id="today-chip">วันนี้</div></div>
+        <div class="pos-layout">
+          <div class="product-picker panel">
+            <div class="toolbar-stack">
+              <label class="search-field"><span aria-hidden="true">⌕</span><input id="pos-search" type="search" placeholder="ค้นหาเมนู..." autocomplete="off"></label>
+              <div class="category-tabs" id="pos-categories" aria-label="หมวดหมู่สินค้า"></div>
+            </div>
+            <div class="product-grid" id="pos-product-grid"><div class="empty-state">กำลังโหลดเมนู...</div></div>
+          </div>
+          <aside class="cart-panel panel">
+            <div class="panel-heading"><div><p class="eyebrow">ออเดอร์ปัจจุบัน</p><h2>รายการขาย</h2></div><button class="text-button" id="clear-cart" type="button">ล้างรายการ</button></div>
+            <div class="cart-items" id="cart-items"><div class="cart-empty"><span class="empty-basket">＋</span><strong>ยังไม่มีสินค้า</strong><span>เลือกเมนูจากด้านซ้ายเพื่อเริ่มขาย</span></div></div>
+            <div class="cart-summary"><div><span>จำนวนชิ้น</span><strong id="cart-count">0</strong></div><div class="total-row"><span>ยอดรวม</span><strong id="cart-total">฿0.00</strong></div><button class="primary-button checkout-button" id="checkout-button" type="button" disabled>ชำระเงิน <span>→</span></button><p class="microcopy">ยอดขายจะบันทึกในอุปกรณ์ก่อนเสมอ</p></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="page" id="page-history" data-page="history">
+        <div class="page-heading"><div><p class="eyebrow">รายการย้อนหลัง</p><h1>ประวัติการขาย</h1><p class="subheading">เปิดดูบิลและตรวจสอบรายการที่ยกเลิก</p></div></div>
+        <div class="panel filter-panel">
+          <label class="search-field"><span aria-hidden="true">⌕</span><input id="history-search" type="search" placeholder="ค้นหาหมายเลขบิลหรือสินค้า..."></label>
+          <div class="filter-row"><label class="field"><span>ตั้งแต่วันที่</span><input type="date" id="history-from"></label><label class="field"><span>ถึงวันที่</span><input type="date" id="history-to"></label><button class="secondary-button" id="history-reset" type="button">ล้างตัวกรอง</button></div>
+        </div>
+        <div class="section-row"><h2>รายการบิล</h2><span class="muted" id="history-count">0 บิล</span></div>
+        <div class="history-list" id="history-list"></div>
+      </section>
+
+      <section class="page" id="page-reports" data-page="reports">
+        <div class="page-heading"><div><p class="eyebrow">ภาพรวมธุรกิจ</p><h1>รายงาน</h1><p class="subheading">ตัวเลขคำนวณจากบิลที่บันทึกไว้ในอุปกรณ์</p></div></div>
+        <div class="panel report-filters">
+          <div class="segmented" id="report-presets"><button type="button" data-range="today" class="selected">วันนี้</button><button type="button" data-range="yesterday">เมื่อวาน</button><button type="button" data-range="7days">7 วัน</button><button type="button" data-range="month">เดือนนี้</button><button type="button" data-range="custom">กำหนดเอง</button></div>
+          <div class="filter-row custom-range" id="custom-range" hidden><label class="field"><span>ตั้งแต่วันที่</span><input type="date" id="report-from"></label><label class="field"><span>ถึงวันที่</span><input type="date" id="report-to"></label><button class="secondary-button" id="apply-report-range" type="button">ใช้ช่วงนี้</button></div>
+          <div class="report-date-note" id="report-date-note"></div>
+        </div>
+        <div class="kpi-grid" id="report-kpis"></div>
+        <div class="report-grid">
+          <section class="panel report-card"><div class="panel-heading"><div><p class="eyebrow">ยอดรับชำระ</p><h2>แยกตามวิธีจ่าย</h2></div></div><div id="payment-breakdown" class="payment-breakdown"></div></section>
+          <section class="panel report-card"><div class="panel-heading"><div><p class="eyebrow">ข้อมูลต้นทุน</p><h2>กำไรขั้นต้น</h2></div></div><div id="profit-summary"></div></section>
+          <section class="panel report-card wide-card"><div class="panel-heading"><div><p class="eyebrow">ประสิทธิภาพเมนู</p><h2>สินค้าขายดี</h2></div><span class="muted">เรียงตามจำนวนที่ขาย</span></div><div id="best-sellers"></div></section>
+          <section class="panel report-card wide-card"><div class="panel-heading"><div><p class="eyebrow">โอกาสปรับเมนู</p><h2>สินค้ายอดขายต่ำ</h2></div><span class="muted">แสดงเฉพาะสินค้าที่มียอดขาย</span></div><div id="slow-sellers"></div></section>
+        </div>
+        <section class="panel export-panel"><div><p class="eyebrow">นำข้อมูลไปวิเคราะห์ต่อ</p><h2>ส่งออกรายงาน</h2><p class="subheading">ไฟล์ CSV รองรับภาษาไทยและเปิดใน Excel ได้</p></div><div class="export-controls"><label class="field"><span>ประเภทรายงาน</span><select id="export-type"><option value="summary">สรุปยอดขาย</option><option value="bills">รายละเอียดบิล</option><option value="items">รายการสินค้าทั้งหมด</option><option value="profit">ต้นทุนและกำไร</option><option value="products">สินค้าขายดีและขายไม่ดี</option></select></label><button class="primary-button" id="export-report" type="button">ดาวน์โหลด CSV ↓</button></div></section>
+      </section>
+
+      <section class="page" id="page-products" data-page="products">
+        <div class="page-heading"><div><p class="eyebrow">จัดการรายการขาย</p><h1>สินค้าและเมนู</h1><p class="subheading">ราคาและต้นทุนแก้ไขได้ ข้อมูลในบิลเก่าจะไม่เปลี่ยนตาม</p></div><button class="primary-button heading-action" id="add-product" type="button">＋ เพิ่มสินค้า</button></div>
+        <div class="notice info-notice"><strong>ก่อนเริ่มขายจริง</strong><span>กรอกต้นทุนต่อหน่วยของแต่ละเมนูเพื่อให้รายงานกำไรขั้นต้นได้ถูกต้อง เมนูมิลค์เชคตั้งต้นยังปิดการขายไว้เป็นตัวเลือกทดลอง</span></div>
+        <div class="product-admin-list" id="product-admin-list"></div>
+      </section>
+
+      <section class="page" id="page-settings" data-page="settings">
+        <div class="page-heading"><div><p class="eyebrow">ข้อมูลและการตั้งค่า</p><h1>ตั้งค่าร้าน</h1><p class="subheading">จัดการข้อมูลในเครื่องและระบบสำรองข้อมูล</p></div></div>
+        <div class="settings-grid">
+          <section class="panel settings-card"><div class="panel-heading"><div><p class="eyebrow">ข้อมูลภายในเครื่อง</p><h2>สำรองและกู้คืน</h2></div><span class="status-dot local-dot">● ในเครื่อง</span></div><p class="body-copy">ข้อมูลขายถูกบันทึกในอุปกรณ์นี้ การล้างข้อมูลเว็บไซต์อาจทำให้ข้อมูลหาย ควรดาวน์โหลดไฟล์สำรองเป็นระยะ</p><div class="storage-stats" id="storage-stats"></div><div class="button-stack"><button class="primary-button" id="export-backup" type="button">ดาวน์โหลดไฟล์สำรอง JSON ↓</button><label class="secondary-button file-button">นำเข้าไฟล์สำรอง JSON ↑<input id="import-backup-file" type="file" accept="application/json,.json" hidden></label></div><p class="small-note">ไฟล์สำรองมีข้อมูลสินค้าและบิล แต่ไม่รวมรหัสผ่านหรือข้อมูลเชื่อมต่อบริการออนไลน์</p></section>
+          <section class="panel settings-card"><div class="panel-heading"><div><p class="eyebrow">สำรองข้อมูลออนไลน์</p><h2>เชื่อมต่อ Supabase</h2></div><span class="muted" id="cloud-state-label">ยังไม่ตั้งค่า</span></div><p class="body-copy">ใช้บัญชีของคุณเพื่อสำรองข้อมูลร้านแบบส่วนตัว ระบบขายในเครื่องยังทำงานได้แม้ไม่ได้เชื่อมต่อ</p><details class="setup-details"><summary>วิธีตั้งค่าบริการ</summary><ol><li>สร้างโปรเจกต์ Supabase ในแผนที่เหมาะสม</li><li>เปิด SQL Editor แล้วรันคำสั่งจากไฟล์ <code>supabase-setup.sql</code></li><li>กรอก Project URL และ anon/publishable key ด้านล่าง</li><li>สมัครหรือเข้าสู่ระบบด้วยอีเมลและรหัสผ่าน</li></ol><p class="small-note">ห้ามใช้ service_role key ในแอปนี้เด็ดขาด</p></details><form id="cloud-config-form" class="form-stack"><label class="field"><span>Supabase Project URL</span><input id="supabase-url" type="url" placeholder="https://xxxxxxxx.supabase.co" autocomplete="url"></label><label class="field"><span>Anon / Publishable key</span><input id="supabase-key" type="password" placeholder="วาง public anon/publishable key" autocomplete="off"></label><button class="secondary-button" type="submit">บันทึกการเชื่อมต่อ</button></form><div class="divider"></div><form id="cloud-auth-form" class="form-stack"><label class="field"><span>อีเมล</span><input id="cloud-email" type="email" placeholder="you@example.com" autocomplete="email" required></label><label class="field"><span>รหัสผ่าน</span><input id="cloud-password" type="password" minlength="8" placeholder="อย่างน้อย 8 ตัวอักษร" autocomplete="current-password" required></label><div class="inline-actions"><button class="primary-button" id="cloud-login" type="submit">เข้าสู่ระบบ</button><button class="secondary-button" id="cloud-signup" type="button">สมัครบัญชี</button><button class="text-button" id="cloud-logout" type="button" hidden>ออกจากระบบ</button></div></form><div class="cloud-message" id="cloud-message" role="status"></div><div class="cloud-sync-actions" id="cloud-sync-actions" hidden><div class="sync-meta" id="sync-meta"></div><button class="secondary-button" id="manual-sync" type="button">สำรองตอนนี้ ↻</button></div></section>
+          <section class="panel settings-card"><div class="panel-heading"><div><p class="eyebrow">สถานะระบบ</p><h2>เกี่ยวกับแอป</h2></div></div><div class="about-list"><div><span>เวอร์ชัน</span><strong>0.1.0 · Round 1</strong></div><div><span>ที่เก็บข้อมูลหลัก</span><strong>IndexedDB</strong></div><div><span>โหมดออนไลน์</span><strong id="online-about">ตรวจสอบ...</strong></div><div><span>การติดตั้ง</span><strong id="install-about">PWA</strong></div></div><button class="secondary-button full-width" id="refresh-app" type="button">ตรวจสอบเวอร์ชันแอป</button><p class="small-note">หากเปิดผ่านไฟล์โดยตรง PWA และ Service Worker จะไม่ทำงาน ต้องใช้ HTTPS หรือ localhost</p></section>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="เมนูหลัก">
+      <button type="button" class="nav-item active" data-target="pos"><span class="nav-icon">＋</span><span>ขาย</span></button>
+      <button type="button" class="nav-item" data-target="history"><span class="nav-icon">▤</span><span>ประวัติ</span></button>
+      <button type="button" class="nav-item" data-target="reports"><span class="nav-icon">▥</span><span>รายงาน</span></button>
+      <button type="button" class="nav-item" data-target="products"><span class="nav-icon">◇</span><span>สินค้า</span></button>
+      <button type="button" class="nav-item" data-target="settings"><span class="nav-icon">⚙</span><span>ตั้งค่า</span></button>
+    </nav>
+  </div>
+
+  <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
+  <div id="modal-root"></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
